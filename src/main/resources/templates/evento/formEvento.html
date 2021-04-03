@@ -4,20 +4,43 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Evento</title>
 </head>
 <body>
 
-<h1>Cadastro de Eventos</h1>
-	<form  method="post">
-		Nome: <input type="text" value="" name="nome"/>
-		Local: <input type="text" value="" name="local"/>
-		Data: <input type="date" vvalue="" name="data" />
-		Horario: <input type="text" vvalue="" name="horario" />
-		<button type="submit">Salvar</button>
+	<h1 class="center-align">Cadastro de Eventos</h1>
+	<div class="center-align">
+		<a href="/eventos" class="waves-effect waves-light btn">Lista de Eventos<i
+		class="material-icons left">format_list_bulleted</i></a>
+	</div>
+	<form method="post" class="container">
+		Nome: <input type="text" value="" name="nome" />
+		<div class="row">
+			<div class="inpur-field col s5">
+				Local: <input type="text" value="" name="local" />
+			</div>
+			<div class="inpur-field col s3">
+				Data: <input type="date" value="" name="data" />
+			</div>
+			<div class="inpur-field col s3">
+				Horario: <input type="text" value="" name="horario" />
+			</div>
+		</div>
+		<button type="submit" class="waves-effect waves-light btn">Salvar</button>
 	</form>
-	
-	<h3><a href="eventos">Listar Eventos</a></h3>
+
+
+	<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 
 </body>
 </html>
