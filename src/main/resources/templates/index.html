@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!DOCTYPE html >
 <html xmlns:th="http://thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <!--Import Google Icon Font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet" />
@@ -35,10 +34,12 @@
 		</thead>
 		<tbody>
 			<tr th:each="evento : ${eventos}" class="container">
-				<th><span th:text="${evento.nome}"></span></th>
-				<th><span th:text=" ${evento.local}"></span></th>
-				<th><span th:text=" ${evento.data}"></span></th>
-				<th><span th:text=" ${evento.horario}"></span></th>
+				<td><a
+					th:href="@{/detalhesEvento/{codigo}(codigo = ${evento.codigo}) }"><span
+						th:text="${evento.nome}"></span></a></td>
+				<td><span th:text=" ${evento.local}"></span></td>
+				<td><span th:text=" ${evento.data}"></span></td>
+				<td><span th:text=" ${evento.horario}"></span></td>
 			</tr>
 		</tbody>
 	</table>

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns:th="http://thymeleaf.org"
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 <!--Import Google Icon Font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet" />
@@ -19,20 +19,30 @@
 
 	<h1 class="center-align">Cadastro de Eventos</h1>
 	<div class="center-align">
-		<a href="/eventos" class="waves-effect waves-light btn">Lista de Eventos<i
-		class="material-icons left">format_list_bulleted</i></a>
+		<a href="/eventos" class="waves-effect waves-light btn">Lista de
+			Eventos<i class="material-icons left">format_list_bulleted</i>
+		</a>
 	</div>
-	<form method="post" class="container">
-		Nome: <input type="text" value="" name="nome" />
+
+
+	<form method="post" class="container" th:object="${evento}">
+
+		<ul class="materialize-red-text" th:if="${#fields.hasErrors('*')}">
+			<li  th:each="err : ${#fields.errors('*')}" th:text="${err}">Input
+				is incorrect</li>
+		</ul>
+
+		Nome: <input type="text" value="" name="nome" th:field="*{nome}" />
 		<div class="row">
 			<div class="inpur-field col s5">
-				Local: <input type="text" value="" name="local" />
+				Local: <input type="text" value="" name="local" th:field="*{local}" />
 			</div>
 			<div class="inpur-field col s3">
-				Data: <input type="date" value="" name="data" />
+				Data: <input type="date" value="" name="data" th:field="*{data}" />
 			</div>
 			<div class="inpur-field col s3">
-				Horario: <input type="text" value="" name="horario" />
+				Horario: <input type="text" value="" name="horario"
+					th:field="*{horario}" />
 			</div>
 		</div>
 		<button type="submit" class="waves-effect waves-light btn">Salvar</button>
